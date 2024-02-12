@@ -1,5 +1,5 @@
-sudo firewall-cmd --add-port=9200/tcp --permanent
-sudo firewall-cmd --add-port=5601/tcp --permanent
-sudo firewall-cmd --add-port=9600/tcp --permanent
-sudo firewall-cmd --add-port=9300/tcp --permanent
-sudo firewall-cmd --reload
+firewall_cmd=ufw
+sudo $firewall_cmd allow 9200
+sudo $firewall_cmd allow 5601
+sudo $firewall_cmd allow 9600
+sudo $firewall_cmd allow 9300
