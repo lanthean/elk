@@ -5,7 +5,7 @@ services:
     container_name: elasticsearch
     restart: always
     volumes:
-    - ./elastic_data:/usr/share/elasticsearch/data/
+    - elastic_data:/usr/share/elasticsearch/data/
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
       discovery.type: single-node    
@@ -17,8 +17,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'
-          memory: 300M
+          cpus: '2'
+          memory: 750M
 
   Logstash:
     image: logstash:7.16.2
@@ -38,8 +38,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'
-          memory: 300M
+          cpus: '2'
+          memory: 750M
 
   Kibana:
     image: kibana:7.16.2
@@ -56,10 +56,10 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 300M
-# volumes:
-#   elastic_data: {}
+          cpus: '2'
+          memory: 500M
+volumes:
+  elastic_data: {}
 
 networks:
   elk:
